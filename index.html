@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Parlons Français</title>
+<meta name="description" content="Private online French lessons for beginners to advanced learners. Personalized plans, conversation practice, grammar, and DELF/TEF/TCF preparation. Book a lesson today.">
+<meta property="og:title" content="Parlons Français | Private French Lessons Online">
+<meta property="og:description" content="Learn French with confidence. Personalized online lessons, a free level quiz, and easy booking.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Private French lessons","serviceType":"French language tutoring","areaServed":"Online","provider":{"@type":"Person","name":"Your Name"}}</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400;1,6..96,600&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+/* Layout concept: Parisian minimalism. Ivory ground, navy ink, one burgundy accent. An arched "window" portrait anchors the hero; the CEFR ladder (A1 to C2) is the recurring structural motif. */
+:root{
+  --bg:#F7F3EB; --surface:#FFFDF8; --surface-2:#EFE9DC; --ink:#14213D; --muted:#586078;
+  --line:#DDD4C3; --accent:#7A2437; --accent-ink:#FFFFFF; --accent-soft:#F1DEE1; --ph-line:#B8606F;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1526; --surface:#162038; --surface-2:#1C2744; --ink:#EEE9DD; --muted:#A5ACBF;
+  --line:#2C3858; --accent:#E0909F; --accent-ink:#1A0A10; --accent-soft:#3A1D2B; --ph-line:#C97887; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1526; --surface:#162038; --surface-2:#1C2744; --ink:#EEE9DD; --muted:#A5ACBF;
+  --line:#2C3858; --accent:#E0909F; --accent-ink:#1A0A10; --accent-soft:#3A1D2B; --ph-line:#C97887; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1 em,h2 em{color:var(--accent);font-style:italic}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1140px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:.5rem 1rem;z-index:50}
+.skip:focus{left:8px}
+.ph{outline:1px dashed var(--ph-line);outline-offset:3px;border-radius:2px}
+
+/* editing strip */
+.strip{background:var(--accent-soft);color:var(--ink);font-size:.875rem}
+.strip .wrap{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding-block:.5rem}
+.strip button{font:inherit;color:inherit;background:none;border:1px solid var(--ph-line);border-radius:999px;padding:.15rem .8rem;cursor:pointer}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.25rem;padding-block:.75rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--display);font-size:1.3rem;margin-right:auto}
+.logo .mark{display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:var(--accent);color:var(--accent-ink);font:600 .8rem var(--body);letter-spacing:.04em}
+.nav{display:flex;gap:1.4rem;font-size:.95rem}
+.nav a{text-decoration:none;color:var(--muted);padding:.25rem 0;white-space:nowrap}
+.nav a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:600 .8rem var(--body);letter-spacing:.06em;border:0;background:none;color:var(--muted);padding:.35rem .75rem;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.theme{display:grid;place-items:center;width:2.15rem;height:2.15rem;border:1px solid var(--line);border-radius:50%;background:none;color:var(--ink);cursor:pointer;padding:0}
+.theme:hover{border-color:var(--accent);color:var(--accent)}
+.theme svg{width:1.05rem;height:1.05rem}
+@media (max-width:900px){.nav{order:5;flex-basis:100%;overflow-x:auto;gap:1.2rem;padding-bottom:.1rem}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font:600 .95rem var(--body);text-decoration:none;border-radius:999px;padding:.8rem 1.4rem;border:1.5px solid transparent;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:none}
+.btn-sm{padding:.5rem 1rem;font-size:.85rem}
+
+/* sections */
+section{scroll-margin-top:120px}
+.band{padding-block:clamp(3.5rem,8vw,6.5rem)}
+.band.alt{background:var(--surface);border-block:1px solid var(--line)}
+.eyebrow{font:600 .75rem var(--body);letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:.9rem}
+.sec-head{max-width:40rem;margin-bottom:clamp(2rem,4vw,3rem)}
+.sec-head h2{font-size:clamp(2rem,4.4vw,3.1rem)}
+.sec-head p{color:var(--muted);margin-top:.9rem}
+
+/* hero */
+.hero{padding-block:clamp(2.5rem,6vw,5rem)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero h1{font-size:clamp(2.7rem,6.4vw,4.9rem);margin-bottom:1.4rem}
+.hero .lead{font-size:1.15rem;color:var(--muted);max-width:34rem}
+.hero .lead .ph{display:inline-block;margin-top:.6rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.arch-wrap{position:relative;max-width:380px;width:100%;justify-self:center}
+.arch-wrap::before{content:"";position:absolute;inset:14px -14px -14px 14px;border:1.5px solid var(--accent);border-radius:999px 999px 20px 20px;z-index:0}
+.arch{position:relative;z-index:1;aspect-ratio:4/5;border-radius:999px 999px 18px 18px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden;display:grid;place-items:center}
+.arch img{width:100%;height:100%;object-fit:cover}
+.arch .empty{display:grid;justify-items:center;gap:.5rem;color:var(--muted);font-size:.85rem;padding-top:4rem}
+.arch svg{width:55%;height:auto;color:var(--line);opacity:.9}
+.badge{position:absolute;z-index:2;left:-1rem;bottom:2.2rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:.6rem .9rem;font-size:.82rem;box-shadow:0 8px 24px rgb(0 0 0 / .08)}
+.badge b{display:block;font-family:var(--display);font-size:1.1rem;font-weight:600}
+@media (max-width:820px){.hero-grid{grid-template-columns:1fr}.arch-wrap{max-width:300px}.badge{left:0}}
+
+/* CEFR ladder */
+.ladder{list-style:none;display:flex;gap:.4rem;padding:0;margin:0;flex-wrap:wrap}
+.ladder li{font:600 .8rem var(--body);letter-spacing:.06em;padding:.35rem .7rem;border:1px solid var(--line);border-radius:999px;color:var(--muted);background:var(--surface)}
+.ladder li.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.ladder-bar{margin-top:clamp(2.5rem,5vw,4rem);display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.ladder-bar .txt{color:var(--muted);font-size:.95rem;margin-right:auto}
+.ladder-bar a{color:var(--accent);font-weight:600;text-underline-offset:4px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem)}
+.about-grid h3{font-size:1.5rem;margin-bottom:1rem}
+.about-grid p{color:var(--muted)}
+dl.facts{margin:0;display:grid;gap:0}
+dl.facts div{display:grid;grid-template-columns:9rem 1fr;gap:1rem;padding:.9rem 0;border-top:1px solid var(--line)}
+dl.facts div:last-child{border-bottom:1px solid var(--line)}
+dt{font:600 .75rem var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);padding-top:.3rem}
+dd{margin:0;min-width:0}
+@media (max-width:820px){.about-grid{grid-template-columns:1fr}dl.facts div{grid-template-columns:1fr;gap:.2rem}}
+
+/* services */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.6rem;display:flex;flex-direction:column;gap:.7rem;min-width:0}
+.band.alt .card{background:var(--bg)}
+.card .kicker{font:italic 400 1.05rem var(--display);color:var(--accent)}
+.card h3{font-size:1.35rem}
+.card p{color:var(--muted);font-size:.98rem}
+@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.cards{grid-template-columns:1fr}}
+
+/* quiz */
+.quiz{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.quiz-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(1.3rem,3vw,2rem);min-width:0}
+.q-meta{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-bottom:.8rem}
+.q-bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:1.5rem}
+.q-bar span{display:block;height:100%;background:var(--accent);transition:width .35s}
+.q-text{font:400 clamp(1.3rem,2.6vw,1.65rem)/1.25 var(--display);margin-bottom:1.4rem}
+.opts{display:grid;gap:.6rem}
+.opt{font:500 1rem var(--body);text-align:left;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.85rem 1rem;cursor:pointer;transition:border-color .2s,background .2s}
+.opt:hover{border-color:var(--accent);background:var(--accent-soft)}
+.linkbtn{font:500 .85rem var(--body);background:none;border:0;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-top:1.2rem;padding:0}
+.res-level{font:italic 400 clamp(2.4rem,6vw,3.4rem)/1 var(--display);color:var(--accent);margin:.3rem 0 1rem}
+.res p{color:var(--muted);margin-bottom:1rem}
+.res .sug{color:var(--ink)}
+.res small{display:block;color:var(--muted);margin-top:1.1rem;font-size:.82rem}
+@media (max-width:820px){.quiz{grid-template-columns:1fr}}
+
+/* pricing */
+.price-card{gap:1rem}
+.price{font:600 2.4rem/1 var(--display)}
+.price small{font:400 .85rem var(--body);color:var(--muted);margin-left:.3rem}
+.dur{font:600 .75rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.price-card ul{list-style:none;padding:0;margin:0;display:grid;gap:.5rem;color:var(--muted);font-size:.96rem;flex:1}
+.price-card li{padding-left:1.2rem;position:relative}
+.price-card li::before{content:"";position:absolute;left:0;top:.7em;width:.6rem;height:1.5px;background:var(--accent)}
+.intro{margin-bottom:1.25rem;display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:center;justify-content:space-between;background:var(--accent-soft);border-radius:14px;padding:1.5rem 1.8rem}
+.intro h3{font-size:1.35rem}
+.intro p{color:var(--muted);max-width:36rem;margin-top:.3rem}
+.tef{margin-top:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,3rem);background:var(--surface);border:1.5px solid var(--accent);border-radius:16px;padding:clamp(1.4rem,3vw,2.2rem)}
+.tef>div{min-width:0}
+.tef .cta-row{margin-top:1.5rem}
+.steps{list-style:none;padding:0;margin:0 0 1.6rem;display:grid;gap:1.1rem;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2rem 1fr;gap:.8rem}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;border:1px solid var(--accent);color:var(--accent);font:600 .85rem var(--body)}
+.steps h4{margin:0;font:400 1.15rem/1.25 var(--display)}
+.steps p{color:var(--muted);font-size:.95rem;margin-top:.15rem}
+@media (max-width:820px){.tef{grid-template-columns:1fr}}
+
+/* career path */
+.journey{margin-top:clamp(3rem,6vw,5rem);padding-top:clamp(2rem,4vw,3rem);border-top:1px solid var(--line);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,4rem)}
+.jr-h{font-size:clamp(1.7rem,3.4vw,2.3rem)}
+.path{position:relative;padding-left:2.2rem;min-width:0}
+.path-line{position:absolute;left:.55rem;top:.6rem;bottom:.6rem;width:2px;background:var(--line);border-radius:2px}
+.path-line i{display:block;width:100%;height:0;background:var(--accent);border-radius:2px;transition:height .25s linear}
+.path ol{list-style:none;margin:0;padding:0;display:grid;gap:2rem}
+.path li{position:relative;min-width:0}
+.path li::before{content:"";position:absolute;left:calc(-2.1rem + 1px);top:.35rem;width:.9rem;height:.9rem;border-radius:50%;background:var(--surface);border:2px solid var(--line);transition:background .3s,border-color .3s}
+.path li.on::before{border-color:var(--accent);background:var(--accent)}
+.jr-when{display:block;font:600 .75rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.jr-role{font:400 1.3rem/1.25 var(--display);margin-top:.25rem}
+.jr-where{color:var(--muted);font-size:.95rem;margin-top:.1rem}
+.jr-text{color:var(--muted);margin-top:.45rem;font-size:.98rem}
+@media (max-width:820px){.journey{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.path-line i,.path li::before{transition:none}}
+
+/* why */
+.why{display:grid;grid-template-columns:repeat(2,1fr);gap:0 clamp(2rem,5vw,4rem)}
+.why div{padding:1.4rem 0;border-top:1px solid var(--line)}
+.why h3{font-size:1.3rem;margin-bottom:.4rem}
+.why p{color:var(--muted)}
+@media (max-width:700px){.why{grid-template-columns:1fr}}
+
+/* reviews */
+.rev blockquote{margin:0;font:italic 400 1.15rem/1.45 var(--display)}
+.rev cite{font:500 .88rem var(--body);font-style:normal;color:var(--muted)}
+.note{margin-top:1.5rem;font-size:.9rem;color:var(--muted)}
+
+/* booking */
+.book{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+.book h2{font-size:clamp(2rem,4.4vw,3.1rem);margin-bottom:1rem}
+.book .info>p{color:var(--muted);margin-bottom:1.5rem}
+.contact-lines{display:grid;gap:.8rem;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid var(--line);font-size:.98rem}
+.contact-lines b{display:block;font:600 .72rem var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.contact-lines span{user-select:all;overflow-wrap:anywhere}
+form{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:clamp(1.3rem,3vw,2rem);display:grid;grid-template-columns:1fr 1fr;gap:1rem;min-width:0}
+.field{display:grid;gap:.35rem;min-width:0}
+.field.full{grid-column:1/-1}
+label{font:600 .82rem var(--body)}
+input,select,textarea{font:400 1rem var(--body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.7rem .85rem;width:100%;min-width:0}
+textarea{min-height:6rem;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.out{grid-column:1/-1;border:1px dashed var(--accent);border-radius:12px;padding:1.1rem;display:grid;gap:.8rem;background:var(--accent-soft)}
+.out p{font-size:.95rem}
+.out textarea{min-height:9rem;font-size:.92rem}
+@media (max-width:820px){.book{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+/* faq */
+.faq{max-width:46rem}
+details{border-top:1px solid var(--line);padding:1.1rem 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:1rem;font:400 1.25rem/1.3 var(--display)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:300 1.6rem/1 var(--body);color:var(--accent);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);margin-top:.8rem;max-width:40rem}
+
+footer{border-top:1px solid var(--line);padding-block:2rem;font-size:.9rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between}
+
+/* motion: content is visible at rest; a small lift is added on scroll */
+.rv{transform:translateY(14px);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.in{transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{transform:none;transition:none}.btn,.q-bar span{transition:none}}
+</style>
+
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+
+<div class="strip" id="strip"><div class="wrap">
+  <span data-i18n="strip"></span>
+  <button type="button" id="stripHide" data-i18n="hide"></button>
+</div></div>
+
+<header class="top"><div class="wrap bar">
+  <a class="logo" href="#top"><span class="mark">PF</span><span>Parlons Français</span></a>
+  <nav class="nav" aria-label="Main">
+    <a href="#about" data-i18n="nav_about"></a>
+    <a href="#services" data-i18n="nav_services"></a>
+    <a href="#quiz" data-i18n="nav_quiz"></a>
+    <a href="#pricing" data-i18n="nav_pricing"></a>
+    <a href="#reviews" data-i18n="nav_reviews"></a>
+    <a href="#faq" data-i18n="nav_faq"></a>
+  </nav>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+  </div>
+  <button type="button" class="theme" id="themeBtn"></button>
+  <a class="btn btn-primary btn-sm js-book" href="#book" data-i18n="cta_book"></a>
+</div></header>
+
+<main id="main">
+
+<section class="hero" id="top"><div class="wrap">
+  <div class="hero-grid">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="hero_eyebrow"></p>
+      <h1 data-i18n="hero_h1"></h1>
+      <p class="lead"><span data-i18n="hero_p"></span><br><span class="ph" data-i18n="hero_ph"></span></p>
+      <div class="cta-row">
+        <a class="btn btn-primary js-book" href="#book" data-i18n="cta_book"></a>
+        <a class="btn btn-ghost" href="#services" data-i18n="cta_services"></a>
+      </div>
+    </div>
+    <div class="arch-wrap rv">
+      <div class="arch">
+        <img id="photo" alt="" hidden>
+        <div class="empty" id="photoEmpty">
+          <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><circle cx="50" cy="36" r="18"/><path d="M12 100c0-24 17-38 38-38s38 14 38 38z"/></svg>
+          <span data-i18n="photo"></span>
+        </div>
+      </div>
+      <div class="badge"><span data-i18n="badge"></span><b class="ph">A1 – C1</b></div>
+    </div>
+  </div>
+  <div class="ladder-bar rv">
+    <p class="txt" data-i18n="ladder_txt"></p>
+    <ol class="ladder" aria-label="CEFR levels"><li>A1</li><li>A2</li><li>B1</li><li>B2</li><li>C1</li><li>C2</li></ol>
+    <a href="#quiz" data-i18n="ladder_link"></a>
+  </div>
+</div></section>
+
+<section id="about" class="band alt"><div class="wrap">
+  <div class="about-grid">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="nav_about"></p>
+      <h2 style="font-size:clamp(2rem,4.4vw,3.1rem);margin-bottom:1.2rem" data-i18n="about_h2"></h2>
+      <p class="ph" data-i18n="about_p"></p>
+      <h3 style="margin-top:2rem" data-i18n="phil_h"></h3>
+      <p class="ph" style="margin-top:.7rem" data-i18n="phil_p"></p>
+    </div>
+    <dl class="facts rv">
+      <div><dt data-i18n="f_exp"></dt><dd class="ph-wrap"><span class="ph" data-i18n="f_exp_v"></span></dd></div>
+      <div><dt data-i18n="f_qual"></dt><dd><span class="ph" data-i18n="f_qual_v"></span></dd></div>
+      <div><dt data-i18n="f_lang"></dt><dd><span class="ph" data-i18n="f_lang_v"></span></dd></div>
+      <div><dt data-i18n="f_lvl"></dt><dd><span class="ph">A1 – C1</span></dd></div>
+    </dl>
+  </div>
+  <div class="journey">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="jr_eb"></p>
+      <h3 class="jr-h" data-i18n="jr_h"></h3>
+      <p style="color:var(--muted);margin-top:.8rem;max-width:26rem" data-i18n="jr_p"></p>
+    </div>
+    <div class="path" id="path">
+      <div class="path-line" aria-hidden="true"><i id="pathFill"></i></div>
+      <ol id="pathList"></ol>
+    </div>
+  </div>
+</div></section>
+
+<section id="services" class="band"><div class="wrap">
+  <div class="sec-head rv">
+    <p class="eyebrow" data-i18n="nav_services"></p>
+    <h2 data-i18n="svc_h2"></h2>
+    <p data-i18n="svc_p"></p>
+  </div>
+  <div class="cards">
+    <article class="card rv"><span class="kicker">Débutant</span><h3 data-i18n="s1_h"></h3><p data-i18n="s1_p"></p></article>
+    <article class="card rv"><span class="kicker">Conversation</span><h3 data-i18n="s2_h"></h3><p data-i18n="s2_p"></p></article>
+    <article class="card rv"><span class="kicker">Grammaire</span><h3 data-i18n="s3_h"></h3><p data-i18n="s3_p"></p></article>
+    <article class="card rv"><span class="kicker">Scolaire</span><h3 data-i18n="s4_h"></h3><p data-i18n="s4_p"></p></article>
+    <article class="card rv"><span class="kicker">DELF · TEF · TCF</span><h3><span data-i18n="s5_h"></span> <span class="ph" style="font:400 .8rem var(--body)" data-i18n="if_offered"></span></h3><p data-i18n="s5_p"></p></article>
+    <article class="card rv"><span class="kicker">Sur mesure</span><h3 data-i18n="s6_h"></h3><p data-i18n="s6_p"></p></article>
+  </div>
+</div></section>
+
+<section id="quiz" class="band alt"><div class="wrap">
+  <div class="quiz">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="nav_quiz"></p>
+      <h2 style="font-size:clamp(2rem,4.4vw,3.1rem);margin-bottom:1rem" data-i18n="quiz_h2"></h2>
+      <p style="color:var(--muted)" data-i18n="quiz_p"></p>
+    </div>
+    <div class="quiz-card rv" id="quizBody" aria-live="polite"></div>
+  </div>
+</div></section>
+
+<section id="pricing" class="band"><div class="wrap">
+  <div class="sec-head rv">
+    <p class="eyebrow" data-i18n="nav_pricing"></p>
+    <h2 data-i18n="pr_h2"></h2>
+    <p data-i18n="pr_p"></p>
+  </div>
+  <div class="intro rv">
+    <div><h3><span data-i18n="intro_h"></span> <span class="ph" style="font:400 .8rem var(--body)" data-i18n="optional"></span></h3><p data-i18n="intro_p"></p></div>
+    <a class="btn btn-primary js-book js-intro" href="#book" data-i18n="cta_intro"></a>
+  </div>
+  <div class="cards">
+    <article class="card price-card rv"><span class="dur" data-i18n="d30"></span>
+      <div class="price"><span class="ph">$ —</span><small data-i18n="per"></small></div>
+      <ul><li data-i18n="p30a"></li><li data-i18n="p30b"></li><li data-i18n="p30c"></li></ul>
+      <a class="btn btn-ghost js-book js-len" href="#book" data-len="30" data-i18n="cta_now"></a></article>
+    <article class="card price-card rv"><span class="dur" data-i18n="d45"></span>
+      <div class="price"><span class="ph">$ —</span><small data-i18n="per"></small></div>
+      <ul><li data-i18n="p45a"></li><li data-i18n="p45b"></li><li data-i18n="p45c"></li></ul>
+      <a class="btn btn-ghost js-book js-len" href="#book" data-len="45" data-i18n="cta_now"></a></article>
+    <article class="card price-card rv"><span class="dur" data-i18n="d60"></span>
+      <div class="price"><span class="ph">$ —</span><small data-i18n="per"></small></div>
+      <ul><li data-i18n="p60a"></li><li data-i18n="p60b"></li><li data-i18n="p60c"></li></ul>
+      <a class="btn btn-ghost js-book js-len" href="#book" data-len="60" data-i18n="cta_now"></a></article>
+  </div>
+  <article class="tef rv" id="tef">
+    <div>
+      <p class="eyebrow" data-i18n="tef_eb"></p>
+      <span style="font:italic 400 1.05rem var(--display);color:var(--accent)">TEF Canada · TCF Canada</span>
+      <h3 style="font-size:clamp(1.6rem,3vw,2.1rem);margin:.4rem 0 1rem"><span data-i18n="tef_h"></span> <span class="ph" style="font:400 .8rem var(--body)" data-i18n="if_offered"></span></h3>
+      <p style="color:var(--muted)" data-i18n="tef_p"></p>
+      <p style="color:var(--muted);margin-top:.8rem" data-i18n="tef_tests"></p>
+      <p style="margin-top:.8rem" data-i18n="tef_target"></p>
+      <div class="cta-row">
+        <a class="btn btn-primary js-book js-tef" href="#book" data-i18n="tef_cta"></a>
+        <a class="btn btn-ghost js-book js-intro" href="#book" data-i18n="cta_intro"></a>
+      </div>
+      <p class="note" data-i18n="tef_disc"></p>
+    </div>
+    <div>
+      <ol class="steps">
+        <li><div><h4 data-i18n="ph1_h"></h4><p data-i18n="ph1_p"></p></div></li>
+        <li><div><h4 data-i18n="ph2_h"></h4><p data-i18n="ph2_p"></p></div></li>
+        <li><div><h4 data-i18n="ph3_h"></h4><p data-i18n="ph3_p"></p></div></li>
+        <li><div><h4 data-i18n="ph4_h"></h4><p data-i18n="ph4_p"></p></div></li>
+      </ol>
+      <dl class="facts">
+        <div><dt data-i18n="tf_dur"></dt><dd><span class="ph" data-i18n="tf_dur_v"></span></dd></div>
+        <div><dt data-i18n="tf_sess"></dt><dd><span class="ph" data-i18n="tf_sess_v"></span></dd></div>
+        <div><dt data-i18n="tf_price"></dt><dd><span class="ph" data-i18n="tf_price_v"></span></dd></div>
+        <div><dt data-i18n="tf_tz"></dt><dd><span class="ph" data-i18n="tf_tz_v"></span></dd></div>
+      </dl>
+    </div>
+  </article>
+  </div></section>
+
+<section id="why" class="band alt"><div class="wrap">
+  <div class="sec-head rv"><p class="eyebrow" data-i18n="why_eb"></p><h2 data-i18n="why_h2"></h2></div>
+  <div class="why">
+    <div class="rv"><h3 data-i18n="w1_h"></h3><p data-i18n="w1_p"></p></div>
+    <div class="rv"><h3 data-i18n="w2_h"></h3><p data-i18n="w2_p"></p></div>
+    <div class="rv"><h3 data-i18n="w3_h"></h3><p data-i18n="w3_p"></p></div>
+    <div class="rv"><h3 data-i18n="w4_h"></h3><p data-i18n="w4_p"></p></div>
+    <div class="rv"><h3 data-i18n="w5_h"></h3><p data-i18n="w5_p"></p></div>
+  </div>
+</div></section>
+
+<section id="reviews" class="band"><div class="wrap">
+  <div class="sec-head rv"><p class="eyebrow" data-i18n="nav_reviews"></p><h2 data-i18n="rev_h2"></h2></div>
+  <div class="cards rev">
+    <figure class="card rv" style="margin:0"><blockquote class="ph" data-i18n="rev_q"></blockquote><cite class="ph" data-i18n="rev_c"></cite></figure>
+    <figure class="card rv" style="margin:0"><blockquote class="ph" data-i18n="rev_q"></blockquote><cite class="ph" data-i18n="rev_c"></cite></figure>
+    <figure class="card rv" style="margin:0"><blockquote class="ph" data-i18n="rev_q"></blockquote><cite class="ph" data-i18n="rev_c"></cite></figure>
+  </div>
+  <p class="note" data-i18n="rev_note"></p>
+</div></section>
+
+<section id="book" class="band alt"><div class="wrap">
+  <div class="book">
+    <div class="info rv">
+      <p class="eyebrow" data-i18n="book_eb"></p>
+      <h2 data-i18n="book_h2"></h2>
+      <p data-i18n="book_p"></p>
+      <a class="btn btn-ghost js-cal" href="#book" data-i18n="cal_btn"></a>
+      <div class="contact-lines">
+        <div><b data-i18n="c_email"></b><a id="emailShow" href="#book" style="overflow-wrap:anywhere"></a></div>
+        <div><b data-i18n="c_social"></b><span class="ph">@yourhandle</span></div>
+      </div>
+    </div>
+    <form id="reqForm" class="rv" novalidate>
+      <div class="field full"><label for="f-intent" data-i18n="l_intent"></label>
+        <select id="f-intent"><option value="book" data-i18n="o_book"></option><option value="intro" data-i18n="o_intro"></option><option value="question" data-i18n="o_question"></option></select></div>
+      <div class="field"><label for="f-len" data-i18n="l_len"></label>
+        <select id="f-len"><option value="30" data-i18n="d30"></option><option value="45" selected data-i18n="d45"></option><option value="60" data-i18n="d60"></option></select></div>
+      <div class="field"><label for="f-level" data-i18n="l_level"></label>
+        <select id="f-level"><option value="unsure" data-i18n="lv_unsure"></option><option value="beginner" data-i18n="lv_beg"></option><option value="A1">A1</option><option value="A2">A2</option><option value="B1">B1</option><option value="B2">B2</option><option value="C1">C1+</option></select></div>
+      <div class="field"><label for="f-day" data-i18n="l_day"></label>
+        <select id="f-day"><option value="any" data-i18n="day_any"></option><option value="wk" data-i18n="day_wk"></option><option value="we" data-i18n="day_we"></option></select></div>
+      <div class="field"><label for="f-time" data-i18n="l_time"></label>
+        <select id="f-time"><option value="any" data-i18n="day_any"></option><option value="am" data-i18n="t_am"></option><option value="pm" data-i18n="t_pm"></option><option value="eve" data-i18n="t_eve"></option></select></div>
+      <div class="field"><label for="f-name" data-i18n="l_name"></label><input id="f-name" type="text" autocomplete="name"></div>
+      <div class="field"><label for="f-email" data-i18n="l_email"></label><input id="f-email" type="email" autocomplete="email"></div>
+      <div class="field full"><label for="f-msg" data-i18n="l_msg"></label><textarea id="f-msg" data-i18n-ph="ph_msg"></textarea></div>
+      <div class="field full"><button class="btn btn-primary" type="submit" data-i18n="send" style="justify-self:start"></button></div>
+      <div class="out" id="out" hidden>
+        <p id="outNote"></p>
+        <textarea id="outText" readonly aria-label="Request text"></textarea>
+        <div style="display:flex;gap:.8rem;align-items:center;flex-wrap:wrap">
+          <a class="btn btn-primary btn-sm" id="mailBtn" href="#book" data-i18n="mail_btn"></a>
+          <button class="btn btn-ghost btn-sm" type="button" id="copyBtn" data-i18n="copy"></button>
+          <span id="copyState" style="font-size:.85rem"></span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div></section>
+
+<section id="faq" class="band"><div class="wrap">
+  <div class="sec-head rv"><p class="eyebrow" data-i18n="nav_faq"></p><h2 data-i18n="faq_h2"></h2></div>
+  <div class="faq rv">
+    <details open><summary data-i18n="q1"></summary><p data-i18n="a1"></p></details>
+    <details><summary data-i18n="q2"></summary><p data-i18n="a2"></p></details>
+    <details><summary data-i18n="q3"></summary><p data-i18n="a3"></p></details>
+    <details><summary data-i18n="q4"></summary><p data-i18n="a4"></p></details>
+  </div>
+</div></section>
+
+</main>
+
+<footer><div class="wrap">
+  <span id="copyright"></span>
+  <span data-i18n="foot"></span>
+</div></footer>
+
+<script>
+/* ---- EDIT THESE ---- */
+var CONFIG={
+  calendarUrl:"https://cal.com/parlewithhosai", /* "Open my booking calendar" button */
+  experience:[],               /* career path entries, e.g. {when:"2019 – 2022",en:{role:"…",place:"…",text:"…"},fr:{role:"…",place:"…",text:"…"}}; leave empty to show placeholders */
+  name:"Your Name",            /* your name */
+  email:"hosaisharifi@gmail.com",/* where requests should be sent */
+  bookingUrl:"https://cal.com/parlewithhosai/30min", /* general "Book a lesson" buttons */
+  links:{                      /* one booking link per button type */
+    intro:"https://cal.com/parlewithhosai/15min",
+    "30":"https://cal.com/parlewithhosai/30min",
+    "45":"https://cal.com/parlewithhosai/45min",
+    "60":"https://cal.com/parlewithhosai/60min"
+  },               /* paste a Calendly / Cal.com / other booking link */
+  photoSrc:""                  /* paste an image URL or data: URI of your portrait */
+};
+var DEFAULTS={name:"Your Name",email:"hello@yourdomain.com"};
+
+var I={
+en:{
+skip:"Skip to content",
+strip:"Outlined text is placeholder content. Replace it with your own details before sharing this page.",
+hide:"Hide",
+nav_about:"About",nav_services:"Services",nav_quiz:"Level quiz",nav_pricing:"Pricing",nav_reviews:"Reviews",nav_faq:"FAQ",
+cta_book:"Book a lesson",cta_services:"Explore my services",cta_now:"Book now",cta_intro:"Book a free intro",
+hero_eyebrow:"Private French lessons · Online",
+hero_h1:"Learn French with <em>confidence</em>.",
+hero_p:"Hello, I’m {name}. Every lesson is shaped around your level, your goals and your pace.",
+hero_ph:"[Add one sentence about your teaching approach.]",
+photo:"Your photo here",badge:"Levels taught",
+ladder_txt:"Where are you on the CEFR scale?",ladder_link:"Take the 1-minute quiz →",
+about_h2:"A tutor who meets you where you are.",
+about_p:"[Your background: where you’re from, how you learned French, why you teach it.]",
+phil_h:"Teaching philosophy",
+phil_p:"[Describe how you plan lessons and keep learners motivated.]",
+jr_eb:"Experience",jr_h:"My journey",
+jr_p:"The places I’ve taught, studied and worked, in order.",
+jr_when:"[Year – Year]",jr_role:"[Role or program]",jr_where:"[Organization, city or online]",
+jr_text:"[One or two lines on what you did and what you learned.]",
+mail_btn:"Open in my email app",
+f_exp:"Experience",f_exp_v:"[Years and settings of teaching experience]",
+f_qual:"Qualifications",f_qual_v:"[Degrees, certificates, DELF/DALF, etc.]",
+f_lang:"Languages",f_lang_v:"French, English, [add others]",f_lvl:"Levels taught",
+svc_h2:"French tutoring services",svc_p:"Choose one focus or mix several. We start with a conversation about your goals.",
+if_offered:"(if offered)",
+s1_h:"Beginner French",s1_p:"Start from zero with clear steps: sounds, essential phrases and your first real conversations.",
+s2_h:"Conversation & pronunciation",s2_p:"Build speaking confidence and train your ear and your accent.",
+s3_h:"Grammar, reading & writing",s3_p:"Make the rules make sense, then use them in texts you actually need.",
+s4_h:"School & academic support",s4_p:"Help with homework, class material and exam revision, matched to your course.",
+s5_h:"Exam preparation",s5_p:"Structured practice for the speaking, listening, reading and writing parts of the exam.",
+s6_h:"Customized private lessons",s6_p:"Tell me what you need, such as travel, work or a move, and we build the lessons around it.",
+quiz_h2:"Find your French level",
+quiz_p:"Five quick questions about what you can already do. You’ll get an estimated CEFR level and a suggested lesson.",
+q_of:"Question {n} of 5",
+q1:"I can greet people, introduce myself and count to twenty.",
+q2:"I can order food, ask for directions and describe my daily routine.",
+q3:"I can talk about the past and future, and tell a short story.",
+q4:"I can follow a conversation at normal speed and explain my opinions.",
+q5:"I can discuss abstract topics and write a well-structured email or essay.",
+a0:"Not yet",a1:"With effort",a2:"Comfortably",back:"← Back",
+res_eb:"Your estimated level",retake:"Retake the quiz",res_sug:"Suggested lesson",
+lvl0:"Beginner",lvl1:"A1",lvl2:"A2",lvl3:"B1",lvl4:"B2",lvl5:"C1",
+sug0:"Beginner French, 45-minute lessons. We begin with sounds, key phrases and simple conversations.",
+sug1:"Beginner French or Conversation & pronunciation, 45-minute lessons.",
+sug2:"Conversation & pronunciation with some grammar, 45-minute lessons.",
+sug3:"Grammar, reading & writing alongside conversation, 45 or 60 minutes.",
+sug4:"Customized private lessons or exam preparation, 60 minutes.",
+sug5:"Customized private lessons focused on nuance, register and writing, 60 minutes.",
+res_note:"This is a self-assessment, not an official CEFR test. We can confirm your level in a first lesson.",
+pr_h2:"Lesson packages & pricing",pr_p:"Individual online lessons. The prices and inclusions below are placeholders to replace.",
+d30:"30-minute lesson",d45:"45-minute lesson",d60:"60-minute lesson",per:"per lesson",
+p30a:"One focused skill or topic",p30b:"Quick speaking warm-up",p30c:"Short practice task",
+p45a:"Conversation plus one skill",p45b:"Corrections explained as we go",p45c:"Practice exercises after class",
+p60a:"Deeper work on grammar, writing or exam tasks",p60b:"Extended speaking practice",p60c:"Written lesson summary",
+intro_h:"Free introductory consultation",optional:"(optional)",
+tef_eb:"Long-term program",
+tef_h:"French exam prep for Canadian PR",
+tef_p:"A structured program over several months for people who need an official French test result for a permanent residence application. It is built for students and professionals, whether you are starting French or building on what you know.",
+tef_tests:"TEF Canada and TCF Canada are the French tests used for Canadian immigration applications.",
+tef_target:"We set your target NCLC level in the first session, based on your application.",
+tef_cta:"Ask about this program",
+tef_msg:"I’m interested in the long-term TEF/TCF Canada program for my PR application.",
+tef_disc:"This program prepares you for the language test. It is not immigration advice, and no score or result is guaranteed. Check current requirements on the official IRCC website.",
+ph1_h:"Assess and plan",ph1_p:"Level check, target score and a week-by-week study plan.",
+ph2_h:"Build the foundation",ph2_p:"Grammar, vocabulary and pronunciation for the level you need.",
+ph3_h:"Train the four skills",ph3_p:"Listening, reading, writing and speaking, practised the way the exam tests them.",
+ph4_h:"Mock exams and test-day strategy",ph4_p:"Timed practice, feedback on your answers and a plan for exam day.",
+tf_dur:"Duration",tf_dur_v:"[e.g. 3–6 months]",
+tf_sess:"Sessions",tf_sess_v:"[e.g. 2 per week, 60 minutes]",
+tf_price:"Price",tf_price_v:"[Price per month or for the full program]",
+tf_tz:"Time zones",tf_tz_v:"[Add the time zones you teach in]",
+intro_p:"A short chat about your goals, a quick check of your level, and a chance to see if we’re a good fit.",
+why_eb:"Why this tutor",why_h2:"Why learn with me?",
+w1_h:"Personalized learning plans",w1_p:"Your goals set the syllabus, not a fixed textbook route.",
+w2_h:"Interactive, engaging lessons",w2_p:"You do most of the talking, with activities that keep lessons varied.",
+w3_h:"Flexible online scheduling",w3_p:"Learn from anywhere and book times that fit your week.",
+w4_h:"A supportive, encouraging space",w4_p:"Mistakes are part of learning, and every lesson is a safe place to try.",
+w5_h:"Progress tracking and practice",w5_p:"Clear next steps and practical exercises so you can see how far you’ve come.",
+rev_h2:"Student testimonials",
+rev_q:"[Paste a real student review here, in their own words.]",
+rev_c:"[Student first name · level · what they achieved]",
+rev_note:"Only add genuine feedback from your own students, with their permission.",
+book_eb:"Booking & contact",book_h2:"Book a lesson or ask a question",
+book_p:"Choose a time that suits you, or send a question first. I’ll reply with available slots.",
+cal_btn:"Open my booking calendar",c_email:"Email",c_social:"Social",
+l_intent:"I would like to",o_book:"Book a lesson",o_intro:"Book the free intro",o_question:"Ask a question",
+l_len:"Lesson length",l_level:"Current level",lv_unsure:"Not sure",lv_beg:"Complete beginner",
+l_day:"Preferred days",day_any:"Any",day_wk:"Weekdays",day_we:"Weekends",
+l_time:"Time of day",t_am:"Morning",t_pm:"Afternoon",t_eve:"Evening",
+l_name:"Your name",l_email:"Your email",l_msg:"Message",ph_msg:"Tell me about your goals, deadlines or anything else.",
+send:"Prepare my request",
+out_note:"Open your request in your email app to send it to {email}. If nothing opens, copy it and email it yourself. This page can’t send messages on its own.",
+out_note_cal:"Open your request in your email app to send it to {email}. If nothing opens, copy it and email it yourself, or use the booking calendar. This page can’t send messages on its own.",
+copy:"Copy request",copied:"Copied",copy_fail:"Select the text and copy it manually.",
+m_hello:"Hello, I’m {n}.",m_book:"I’d like to book a lesson.",m_intro:"I’d like to book the free introductory consultation.",m_question:"I have a question.",
+m_len:"Lesson length",m_level:"Level",m_days:"Preferred days",m_time:"Time of day",m_email:"Email",
+faq_h2:"Frequently asked questions",
+q1:"Are lessons online or in person?",a1:"Lessons take place online by video call. [Add in-person options here if you offer them.]",
+q2:"Do I need previous French knowledge?",a2:"No. Complete beginners are welcome, and we start from wherever you are.",
+q3:"What materials are provided?",a3:"[List what you provide: worksheets, audio, reading texts, lesson summaries, etc.]",
+q4:"How do payments and cancellations work?",a4:"[State your payment methods, when payment is due and your cancellation notice period.]",
+foot:"Merci, et à bientôt."
+},
+fr:{
+skip:"Aller au contenu",
+strip:"Le texte encadré est un texte modèle. Remplacez-le par vos informations avant de partager cette page.",
+hide:"Masquer",
+nav_about:"À propos",nav_services:"Services",nav_quiz:"Test de niveau",nav_pricing:"Tarifs",nav_reviews:"Avis",nav_faq:"FAQ",
+cta_book:"Réserver un cours",cta_services:"Découvrir mes services",cta_now:"Réserver",cta_intro:"Réserver l’essai gratuit",
+hero_eyebrow:"Cours particuliers de français · En ligne",
+hero_h1:"Apprenez le français en toute <em>confiance</em>.",
+hero_p:"Bonjour, je m’appelle {name}. Chaque cours est construit selon votre niveau, vos objectifs et votre rythme.",
+hero_ph:"[Ajoutez une phrase sur votre façon d’enseigner.]",
+photo:"Votre photo ici",badge:"Niveaux enseignés",
+ladder_txt:"Où en êtes-vous sur l’échelle du CECRL ?",ladder_link:"Faites le test d’une minute →",
+about_h2:"Un professeur qui part de votre niveau.",
+about_p:"[Votre parcours : d’où vous venez, comment vous avez appris le français, pourquoi vous l’enseignez.]",
+phil_h:"Ma philosophie d’enseignement",
+phil_p:"[Décrivez comment vous préparez vos cours et motivez vos élèves.]",
+jr_eb:"Expérience",jr_h:"Mon parcours",
+jr_p:"Les endroits où j’ai enseigné, étudié et travaillé, dans l’ordre.",
+jr_when:"[Année – Année]",jr_role:"[Poste ou programme]",jr_where:"[Organisme, ville ou en ligne]",
+jr_text:"[Une ou deux lignes sur ce que vous avez fait et appris.]",
+mail_btn:"Ouvrir dans ma messagerie",
+f_exp:"Expérience",f_exp_v:"[Années et contextes d’enseignement]",
+f_qual:"Diplômes",f_qual_v:"[Diplômes, certifications, DELF/DALF, etc.]",
+f_lang:"Langues",f_lang_v:"Français, anglais, [ajoutez d’autres langues]",f_lvl:"Niveaux enseignés",
+svc_h2:"Mes cours de français",svc_p:"Choisissez un axe ou combinez-en plusieurs. Nous commençons par parler de vos objectifs.",
+if_offered:"(si proposé)",
+s1_h:"Français pour débutants",s1_p:"Partez de zéro, étape par étape : les sons, les phrases essentielles et vos premières vraies conversations.",
+s2_h:"Conversation et prononciation",s2_p:"Gagnez en assurance à l’oral et entraînez votre oreille et votre accent.",
+s3_h:"Grammaire, lecture et écriture",s3_p:"Comprenez enfin les règles, puis utilisez-les dans des textes dont vous avez vraiment besoin.",
+s4_h:"Soutien scolaire et universitaire",s4_p:"Aide pour les devoirs, les cours et la révision des examens, adaptée à votre programme.",
+s5_h:"Préparation aux examens",s5_p:"Entraînement structuré à l’oral, à la compréhension orale, à la lecture et à l’écrit.",
+s6_h:"Cours particuliers sur mesure",s6_p:"Dites-moi ce dont vous avez besoin (voyage, travail, déménagement) et nous construisons les cours autour.",
+quiz_h2:"Trouvez votre niveau de français",
+quiz_p:"Cinq questions rapides sur ce que vous savez déjà faire. Vous obtenez un niveau CECRL estimé et un cours conseillé.",
+q_of:"Question {n} sur 5",
+q1:"Je sais saluer, me présenter et compter jusqu’à vingt.",
+q2:"Je sais commander au restaurant, demander mon chemin et décrire ma journée.",
+q3:"Je sais parler du passé et du futur, et raconter une courte histoire.",
+q4:"Je comprends une conversation à vitesse normale et je sais expliquer mon opinion.",
+q5:"Je sais parler de sujets abstraits et écrire un courriel ou un essai bien structuré.",
+a0:"Pas encore",a1:"Avec effort",a2:"Facilement",back:"← Retour",
+res_eb:"Votre niveau estimé",retake:"Refaire le test",res_sug:"Cours conseillé",
+lvl0:"Débutant",lvl1:"A1",lvl2:"A2",lvl3:"B1",lvl4:"B2",lvl5:"C1",
+sug0:"Français pour débutants, cours de 45 minutes. Nous commençons par les sons, les phrases clés et des conversations simples.",
+sug1:"Français pour débutants ou Conversation et prononciation, cours de 45 minutes.",
+sug2:"Conversation et prononciation avec un peu de grammaire, cours de 45 minutes.",
+sug3:"Grammaire, lecture et écriture en plus de la conversation, 45 ou 60 minutes.",
+sug4:"Cours particuliers sur mesure ou préparation aux examens, 60 minutes.",
+sug5:"Cours particuliers sur mesure axés sur les nuances, le registre et l’écrit, 60 minutes.",
+res_note:"Il s’agit d’une auto-évaluation, pas d’un test officiel du CECRL. Nous pourrons confirmer votre niveau lors d’un premier cours.",
+pr_h2:"Forfaits et tarifs",pr_p:"Cours individuels en ligne. Les prix et contenus ci-dessous sont des exemples à remplacer.",
+d30:"Cours de 30 minutes",d45:"Cours de 45 minutes",d60:"Cours de 60 minutes",per:"par cours",
+p30a:"Une compétence ou un thème ciblé",p30b:"Court échauffement à l’oral",p30c:"Petit exercice pratique",
+p45a:"Conversation et une compétence",p45b:"Corrections expliquées au fil du cours",p45c:"Exercices d’entraînement après le cours",
+p60a:"Travail approfondi : grammaire, écriture ou épreuves d’examen",p60b:"Pratique orale prolongée",p60c:"Résumé écrit du cours",
+intro_h:"Consultation d’introduction gratuite",optional:"(facultatif)",
+tef_eb:"Programme longue durée",
+tef_h:"Préparation au français pour la résidence permanente",
+tef_p:"Un programme structuré sur plusieurs mois pour celles et ceux qui ont besoin d’un résultat officiel de test de français pour une demande de résidence permanente. Il s’adresse aux étudiants et aux professionnels, que vous débutiez en français ou que vous approfondissiez vos acquis.",
+tef_tests:"Le TEF Canada et le TCF Canada sont les tests de français utilisés pour les demandes d’immigration au Canada.",
+tef_target:"Nous fixons votre niveau NCLC cible dès la première séance, selon votre dossier.",
+tef_cta:"Poser une question sur ce programme",
+tef_msg:"Je suis intéressé(e) par le programme longue durée TEF/TCF Canada pour ma demande de résidence permanente.",
+tef_disc:"Ce programme vous prépare au test de langue. Il ne constitue pas un conseil en immigration, et aucun score ni résultat n’est garanti. Consultez les exigences en vigueur sur le site officiel d’IRCC.",
+ph1_h:"Évaluer et planifier",ph1_p:"Évaluation de niveau, objectif de score et plan d’étude semaine par semaine.",
+ph2_h:"Bâtir les bases",ph2_p:"Grammaire, vocabulaire et prononciation pour le niveau visé.",
+ph3_h:"Travailler les quatre compétences",ph3_p:"Compréhension orale, lecture, écriture et expression orale, comme l’examen les évalue.",
+ph4_h:"Examens blancs et stratégie du jour J",ph4_p:"Entraînement chronométré, commentaires sur vos réponses et plan pour le jour de l’examen.",
+tf_dur:"Durée",tf_dur_v:"[ex. 3 à 6 mois]",
+tf_sess:"Séances",tf_sess_v:"[ex. 2 par semaine, 60 minutes]",
+tf_price:"Tarif",tf_price_v:"[Tarif mensuel ou pour tout le programme]",
+tf_tz:"Fuseaux horaires",tf_tz_v:"[Indiquez vos fuseaux horaires]",
+intro_p:"Un court échange sur vos objectifs, une vérification rapide de votre niveau, et l’occasion de voir si nous nous entendons bien.",
+why_eb:"Pourquoi moi",why_h2:"Pourquoi apprendre avec moi ?",
+w1_h:"Un plan d’apprentissage personnalisé",w1_p:"Vos objectifs définissent le programme, pas un manuel imposé.",
+w2_h:"Des cours interactifs et vivants",w2_p:"Vous parlez la plupart du temps, avec des activités variées.",
+w3_h:"Des horaires flexibles en ligne",w3_p:"Apprenez de n’importe où et réservez les horaires qui vous conviennent.",
+w4_h:"Un cadre bienveillant et encourageant",w4_p:"Les erreurs font partie de l’apprentissage, et chaque cours est un espace sûr pour essayer.",
+w5_h:"Suivi des progrès et exercices pratiques",w5_p:"Des prochaines étapes claires et des exercices concrets pour mesurer vos progrès.",
+rev_h2:"Témoignages d’élèves",
+rev_q:"[Collez ici un vrai avis d’élève, avec ses propres mots.]",
+rev_c:"[Prénom de l’élève · niveau · ce qu’il ou elle a accompli]",
+rev_note:"N’ajoutez que de vrais avis de vos élèves, avec leur accord.",
+book_eb:"Réservation et contact",book_h2:"Réservez un cours ou posez une question",
+book_p:"Choisissez un horaire qui vous convient, ou envoyez d’abord une question. Je vous répondrai avec mes disponibilités.",
+cal_btn:"Ouvrir mon agenda de réservation",c_email:"Courriel",c_social:"Réseaux",
+l_intent:"Je souhaite",o_book:"Réserver un cours",o_intro:"Réserver l’essai gratuit",o_question:"Poser une question",
+l_len:"Durée du cours",l_level:"Niveau actuel",lv_unsure:"Je ne sais pas",lv_beg:"Débutant complet",
+l_day:"Jours préférés",day_any:"Peu importe",day_wk:"En semaine",day_we:"Le week-end",
+l_time:"Moment de la journée",t_am:"Matin",t_pm:"Après-midi",t_eve:"Soir",
+l_name:"Votre nom",l_email:"Votre courriel",l_msg:"Message",ph_msg:"Parlez-moi de vos objectifs, de vos échéances ou de tout autre détail.",
+send:"Préparer ma demande",
+out_note:"Ouvrez votre demande dans votre messagerie pour l’envoyer à {email}. Si rien ne s’ouvre, copiez-la et envoyez-la vous-même. Cette page ne peut pas envoyer de message seule.",
+out_note_cal:"Ouvrez votre demande dans votre messagerie pour l’envoyer à {email}. Si rien ne s’ouvre, copiez-la et envoyez-la vous-même, ou utilisez l’agenda de réservation. Cette page ne peut pas envoyer de message seule.",
+copy:"Copier la demande",copied:"Copié",copy_fail:"Sélectionnez le texte et copiez-le manuellement.",
+m_hello:"Bonjour, je m’appelle {n}.",m_book:"Je voudrais réserver un cours.",m_intro:"Je voudrais réserver la consultation d’introduction gratuite.",m_question:"J’ai une question.",
+m_len:"Durée du cours",m_level:"Niveau",m_days:"Jours préférés",m_time:"Moment de la journée",m_email:"Courriel",
+faq_h2:"Questions fréquentes",
+q1:"Les cours ont-ils lieu en ligne ou en personne ?",a1:"Les cours ont lieu en ligne, par appel vidéo. [Ajoutez ici les cours en personne si vous en proposez.]",
+q2:"Faut-il déjà connaître le français ?",a2:"Non. Les débutants complets sont les bienvenus, et nous partons de votre niveau.",
+q3:"Quel matériel est fourni ?",a3:"[Indiquez ce que vous fournissez : fiches, audio, textes à lire, résumés de cours, etc.]",
+q4:"Comment fonctionnent le paiement et les annulations ?",a4:"[Indiquez vos modes de paiement, l’échéance du paiement et votre délai d’annulation.]",
+foot:"Merci, et à bientôt."
+}};
+
+var lang="en", qi=0, ans=[];
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+function phWrap(v,def){return v===def?'<span class="ph">'+v+'</span>':v}
+function fmt(s){return s.replace(/\{name\}/g,phWrap(CONFIG.name,DEFAULTS.name)).replace(/\{email\}/g,phWrap(CONFIG.email,DEFAULTS.email))}
+function T(k){return I[lang][k]||""}
+
+function levelIndex(){var c=0;while(c<5&&ans[c]===2)c++;return c}
+var LEVELVAL=["beginner","A1","A2","B1","B2","C1"];
+var LADDER=["A1","A2","B1","B2","C1","C2"];
+
+function renderQuiz(){
+  var box=$("#quizBody");if(!box)return;
+  if(qi<5){
+    var h='<div class="q-meta"><span>'+T("q_of").replace("{n}",qi+1)+'</span></div>'
+      +'<div class="q-bar"><span style="width:'+(qi/5*100)+'%"></span></div>'
+      +'<p class="q-text">'+T("q"+(qi+1))+'</p><div class="opts">';
+    [2,1,0].forEach(function(v){h+='<button type="button" class="opt" data-act="ans" data-v="'+v+'">'+T("a"+v)+'</button>'});
+    h+='</div>';
+    if(qi>0)h+='<button type="button" class="linkbtn" data-act="back">'+T("back")+'</button>';
+    box.innerHTML=h;
+  }else{
+    var c=levelIndex();
+    var lad='<ol class="ladder">'+LADDER.map(function(l,i){return '<li class="'+(i===c-1?'on':'')+'">'+l+'</li>'}).join("")+'</ol>';
+    box.innerHTML='<div class="res"><p class="eyebrow">'+T("res_eb")+'</p>'
+      +'<div class="res-level">'+T("lvl"+c)+'</div>'+lad
+      +'<p class="sug" style="margin-top:1.2rem"><strong>'+T("res_sug")+':</strong> '+T("sug"+c)+'</p>'
+      +'<div style="display:flex;gap:.7rem;flex-wrap:wrap"><a class="btn btn-primary js-book js-quizbook" href="#book" data-lv="'+LEVELVAL[c]+'">'+T("cta_intro")+'</a>'
+      +'<button type="button" class="btn btn-ghost" data-act="retake">'+T("retake")+'</button></div>'
+      +'<small>'+T("res_note")+'</small></div>';
+    wireBook();
+  }
+}
+
+function wireBook(){
+  if(!CONFIG.bookingUrl)return;
+  $$(".js-book").forEach(function(a){
+    if(a.classList.contains("js-tef"))return;
+    var key=(a.classList.contains("js-intro")||a.classList.contains("js-quizbook"))?"intro":a.getAttribute("data-len");
+    var url=(key&&CONFIG.links[key])||CONFIG.bookingUrl;
+    a.href=url;a.target="_blank";a.rel="noopener";
+  });
+}
+
+function applyLang(l){
+  lang=l;document.documentElement.lang=l;
+  $$("[data-i18n]").forEach(function(el){el.innerHTML=fmt(T(el.getAttribute("data-i18n")))});
+  $$("[data-i18n-ph]").forEach(function(el){el.setAttribute("placeholder",T(el.getAttribute("data-i18n-ph")))});
+  $$(".lang button").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-lang")===l?"true":"false")});
+  $("#emailShow").textContent=CONFIG.email;
+  $("#emailShow").classList.toggle("ph",CONFIG.email===DEFAULTS.email);
+  renderQuiz();
+  if(!$("#out").hidden)buildOut();
+  renderPath();
+  updateThemeBtn();
+  try{localStorage.setItem("pf-lang",l)}catch(e){}
+}
+
+/* quiz events */
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-act]");
+  if(t){
+    var a=t.getAttribute("data-act");
+    if(a==="ans"){ans[qi]=+t.getAttribute("data-v");qi++;renderQuiz()}
+    else if(a==="back"){qi=Math.max(0,qi-1);renderQuiz()}
+    else if(a==="retake"){qi=0;ans=[];renderQuiz()}
+    return;
+  }
+  var q=e.target.closest(".js-quizbook");
+  if(q){setSel("f-level",q.getAttribute("data-lv"));setSel("f-intent","intro")}
+  var len=e.target.closest(".js-len");
+  if(len){setSel("f-len",len.getAttribute("data-len"));setSel("f-intent","book")}
+  if(e.target.closest(".js-intro")){setSel("f-intent","intro")}
+  if(e.target.closest(".js-tef")){setSel("f-intent","question");var tm=document.getElementById("f-msg");if(tm&&!tm.value.trim())tm.value=T("tef_msg")}
+});
+function setSel(id,v){var el=document.getElementById(id);if(el)el.value=v}
+
+/* form: builds a copyable request; this page cannot send messages */
+function buildOut(){
+  var d=function(id){return document.getElementById(id)};
+  var sel=function(id){var s=d(id);return s.options[s.selectedIndex].text};
+  var intent=d("f-intent").value;
+  var name=d("f-name").value.trim()||"…";
+  var lines=[T("m_hello").replace("{n}",name),T("m_"+intent)];
+  if(intent!=="question"){
+    lines.push(T("m_len")+": "+sel("f-len"));
+    lines.push(T("m_days")+": "+sel("f-day"));
+    lines.push(T("m_time")+": "+sel("f-time"));
+  }
+  lines.push(T("m_level")+": "+sel("f-level"));
+  if(d("f-email").value.trim())lines.push(T("m_email")+": "+d("f-email").value.trim());
+  if(d("f-msg").value.trim()){lines.push("");lines.push(d("f-msg").value.trim())}
+  d("outText").value=lines.join("\n");
+  d("outNote").innerHTML=fmt(CONFIG.bookingUrl?T("out_note_cal"):T("out_note"));
+  d("mailBtn").href="mailto:"+CONFIG.email+"?subject="+encodeURIComponent("Parlons Français – "+sel("f-intent"))+"&body="+encodeURIComponent(d("outText").value);
+}
+$("#reqForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  $("#out").hidden=false;buildOut();$("#copyState").textContent="";
+  $("#out").scrollIntoView({behavior:"smooth",block:"nearest"});
+});
+$("#copyBtn").addEventListener("click",function(){
+  var ta=$("#outText"),st=$("#copyState");
+  function fallback(){ta.focus();ta.select();st.textContent=T("copy_fail")}
+  try{navigator.clipboard.writeText(ta.value).then(function(){st.textContent=T("copied")},fallback)}catch(err){fallback()}
+});
+
+/* booking links */
+(function(){
+  if(CONFIG.bookingUrl){
+    $$(".js-cal").forEach(function(a){a.href=CONFIG.calendarUrl||CONFIG.bookingUrl;a.target="_blank";a.rel="noopener"});
+  }else{
+    $$(".js-cal").forEach(function(a){a.hidden=true});
+  }
+  if(CONFIG.photoSrc){var p=$("#photo");p.src=CONFIG.photoSrc;p.hidden=false;$("#photoEmpty").hidden=true}
+  wireBook();
+  $("#emailShow").href="mailto:"+CONFIG.email;
+  $("#copyright").textContent="© "+new Date().getFullYear()+" "+CONFIG.name;
+})();
+
+$$(".lang button").forEach(function(b){b.addEventListener("click",function(){applyLang(b.getAttribute("data-lang"))})});
+$("#stripHide").addEventListener("click",function(){$("#strip").hidden=true});
+
+/* scroll lift */
+(function(){
+  var els=$$(".rv");
+  if(!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("in")});return}
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.12});
+  els.forEach(function(e){io.observe(e)});
+})();
+
+/* career path: the line fills and nodes light up as you scroll */
+function renderPath(){
+  var list=$("#pathList");if(!list)return;
+  var items=CONFIG.experience&&CONFIG.experience.length?CONFIG.experience:null,h="";
+  if(items){
+    items.forEach(function(x){
+      var d=x[lang]||x.en||{};
+      h+='<li><span class="jr-when">'+x.when+'</span><div class="jr-role">'+(d.role||"")+'</div><div class="jr-where">'+(d.place||"")+'</div><p class="jr-text">'+(d.text||"")+'</p></li>';
+    });
+  }else{
+    for(var i=0;i<4;i++){
+      h+='<li><span class="jr-when"><span class="ph">'+T("jr_when")+'</span></span><div class="jr-role"><span class="ph">'+T("jr_role")+'</span></div><div class="jr-where"><span class="ph">'+T("jr_where")+'</span></div><p class="jr-text"><span class="ph">'+T("jr_text")+'</span></p></li>';
+    }
+  }
+  list.innerHTML=h;
+  updatePath();
+}
+function updatePath(){
+  var p=$("#path"),fill=$("#pathFill");if(!p||!fill)return;
+  var reduce=false;try{reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}
+  var total=p.offsetHeight,top=p.getBoundingClientRect().top;
+  var h=reduce?total:Math.max(0,Math.min(total,window.innerHeight*0.6-top));
+  fill.style.height=h+"px";
+  $$("#pathList li").forEach(function(li){li.classList.toggle("on",reduce||li.offsetTop+10<=h)});
+}
+(function(){
+  var tick=false;
+  function sched(){if(tick)return;tick=true;requestAnimationFrame(function(){tick=false;updatePath()})}
+  window.addEventListener("scroll",sched,{passive:true});
+  window.addEventListener("resize",sched);
+  window.addEventListener("load",sched);
+})();
+
+/* light / dark mode: follows the system until the visitor picks one */
+var SUN='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+var MOON='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>';
+var THLABEL={en:["Switch to dark mode","Switch to light mode"],fr:["Passer en mode sombre","Passer en mode clair"]};
+function isDark(){
+  var a=document.documentElement.getAttribute("data-theme");
+  if(a)return a==="dark";
+  try{return window.matchMedia("(prefers-color-scheme: dark)").matches}catch(e){return false}
+}
+function updateThemeBtn(){
+  var b=$("#themeBtn");if(!b)return;
+  var d=isDark();
+  b.innerHTML=d?SUN:MOON;
+  var l=THLABEL[lang][d?1:0];
+  b.setAttribute("aria-label",l);b.setAttribute("title",l);
+}
+$("#themeBtn").addEventListener("click",function(){
+  var next=isDark()?"light":"dark";
+  document.documentElement.setAttribute("data-theme",next);
+  try{localStorage.setItem("pf-theme",next)}catch(e){}
+  updateThemeBtn();
+});
+try{var th=localStorage.getItem("pf-theme");if(th==="dark"||th==="light")document.documentElement.setAttribute("data-theme",th)}catch(e){}
+try{window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",updateThemeBtn)}catch(e){}
+
+var start="en";
+try{var s=localStorage.getItem("pf-lang");if(s==="fr"||s==="en")start=s;else if((navigator.language||"").slice(0,2)==="fr")start="fr"}catch(e){}
+applyLang(start);
+</script>
+
+</body>
+</html>
